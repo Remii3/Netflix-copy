@@ -45,7 +45,7 @@ function Row({ title, fetchUrl, isLargeRow = false, genres }) {
     <div className="mx-5 mb-2 p-4 group">
       <h2 className="pb-1">{title}</h2>
       <div
-        className={` w-[48px] absolute  bg-[rgba(0,0,0,0.6)] left-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-200  ${
+        className={`hidden w-[48px] absolute  bg-[rgba(0,0,0,0.6)] left-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 group-hover:opacity-100  transition-all ease-in-out duration-200  ${
           isLargeRow ? "h-[400px]" : "h-[200px]"
         }`}
         onClick={() => leftArrowHandle()}
