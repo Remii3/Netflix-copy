@@ -103,11 +103,11 @@ const Plans = () => {
         const isCurrentPackage = productData.name?.includes(subscription?.role);
         return (
           <div
-            className="flex justify-between p-5 opacity-50 hover:opacity-100"
+            className="flex justify-between md:p-5 py-3 opacity-50 hover:opacity-100"
             key={productId}
           >
-            <div className="">
-              <h5 className="">{productData.name}</h5>
+            <div>
+              <h5>{productData.name}</h5>
               <h6>{productData.description}</h6>
             </div>
             <button

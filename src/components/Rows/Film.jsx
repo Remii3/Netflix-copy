@@ -24,18 +24,20 @@ function Film({ isLargeRow, movie, genres }) {
     });
   };
 
-  const filteredGenres = genres.filter((el) => {
-    return movie.genre_ids.find((e) => {
-      return e === el.id;
-    });
-  });
+  const filteredGenres = genres
+    .filter((el) => {
+      return movie.genre_ids.find((e) => {
+        return e === el.id;
+      });
+    })
+    .slice(0, 3);
 
   return (
     <div
-      className={`relative z-10 mr-[15px] transition-all transform duration-[250ms] md:hover:z-30  flex-[0_0_auto] group  bg-[rgb(37,37,37)]  md:hover:scale-[1.2]`}
+      className={`relative scale-95 hover:scale-100 flex-[0_0_auto]  bg-[rgb(37,37,37)] transition duration-200 group-scope`}
     >
       <img
-        className={`${isLargeRow ? "max-h-[350px] " : "max-h-[150px] "}`}
+        className={` ${isLargeRow ? "max-h-[400px] " : "max-h-[200px] "}`}
         key={movie.id}
         src={`${BASE_URL}${
           isLargeRow ? movie.poster_path : movie.backdrop_path
@@ -43,42 +45,44 @@ function Film({ isLargeRow, movie, genres }) {
         alt={movie.name}
       />
       <div
-        className={`absolute w-full z-10 bottom-0 left-0 px-2 opacity-0   group-hover:opacity-100 bg-[rgba(51,51,51,0.8)] transition-all transform duration-200 `}
+        className={`absolute w-full min-h-[92px] bottom-0 left-0 px-2 opacity-0    bg-[rgba(51,51,51,0.8)] transition-all transform duration-200 group-scope-hover:opacity-100`}
       >
-        <p>{movie?.title || movie?.name || movie?.original.name}</p>
-        <p>
-          <span className="p-1">
+        <p className="text-lg">
+          {movie?.title || movie?.name || movie?.original.name}
+        </p>
+        <p className="my-1">
+          <span className="mr-2">
             {stats.inList ? (
               <CheckCircleIcon
+                className=" inline-block max-h-7 cursor-pointer   "
                 onClick={addToMyList}
-                className="relative inline-block max-h-5 cursor-pointer transition-all  "
               />
             ) : (
               <PlusCircleIcon
+                className=" inline-block max-h-7 cursor-pointer  hover:animate-bounce transition-all duration-200"
                 onClick={addToMyList}
-                className="relative inline-block max-h-5 cursor-pointer transition-all duration-200 transform hover:animate-bounce"
               />
             )}
           </span>
-          <span className="p-1">
+          <span className="mr-2">
             {stats.liked ? (
               <SolidThumbUp
                 onClick={likeHandler}
-                className="relative inline-block max-h-5 cursor-pointer transition-all "
+                className=" inline-block max-h-7 cursor-pointer  "
               ></SolidThumbUp>
             ) : (
               <OutThumbUp
                 onClick={likeHandler}
-                className="relative inline-block max-h-5 cursor-pointer transition-all duration-200 transform hover:animate-bounce"
+                className=" inline-block max-h-7 cursor-pointer  hover:animate-bounce transition-all duration-200"
               />
             )}
           </span>
         </p>
-        <p className="my-[10px]">
+        <p className="m-[4px_0_2px] flex flex-wrap">
           {filteredGenres.map((genre) => (
             <span
               key={genre.id}
-              className="p-1 mx-[2px] text-sm font-light bg-[rgba(51,51,51,1)] rounded-xl cursor-pointer hover:bg-[rgba(60,60,60,1)] transition-all duration-150"
+              className="px-2 py-1 m-[2px_2px_2px_0] text-md font-light bg-[rgba(51,51,51,1)] rounded-xl cursor-pointer hover:bg-[rgba(60,60,60,1)] transition-all duration-200"
             >
               {genre.name}
             </span>

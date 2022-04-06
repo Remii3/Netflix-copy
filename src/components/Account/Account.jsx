@@ -3,11 +3,11 @@ import { selectUser } from "../../features/userSlice";
 import Nav from "../Header/Nav";
 import { auth, signOut } from "../../firebase";
 import Plans from "./Plans";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { subscriptionSliceActions } from "../../features/subscriptionSlice";
 import { useDispatch } from "react-redux";
-import Login from "./Login";
 import { useEffect } from "react";
+
 const Account = () => {
   const loggedIn = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -21,22 +21,21 @@ const Account = () => {
     window.localStorage.clear();
     navigate("/login");
   };
-
   return (
-    <div className="relative bg-black h-screen ">
+    <div className="relative bg-black h-screen overflow-y-scroll">
       <Nav />
       {loggedIn ? (
-        <div className="flex flex-col w-1/2 pt-[8%] top-[30%] mx-auto  max-w-[800px]">
+        <div className="flex flex-col md:w-1/2 w-3/4 md:pt-[8%] pt-[20%] top-[30%] mx-auto my-4  max-w-[800px]">
           <h1 className="mb-[20px] border-b-[1px] border-b-[#282c2d] text-6xl">
             Edit Profile
           </h1>
-          <div className="flex">
+          <div className="flex md:flex-row flex-col">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
               alt="avatar"
-              className="h-[100px]"
+              className="md:h-[100px] md:max-w-[100px] w-1/2 mx-auto mb-4"
             />
-            <div className="ml-[25px] flex-1">
+            <div className="md:ml-[25px] flex-1">
               <h2 className="p-[15px] bg-[gray] pl-[20px] text-sm">
                 {loggedIn?.email}
               </h2>
@@ -56,7 +55,6 @@ const Account = () => {
           </div>
         </div>
       ) : (
-        // <Navigate to={"/login"} replace />
         <div className=" flex flex-col w-1/2 pt-[15%] items-center mx-auto  max-w-[800px]">
           <h1 className="p-5 text-5xl">Please sign in</h1>
           <button

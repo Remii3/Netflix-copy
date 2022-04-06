@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function Nav() {
-  const [show, setShow] = useState(false);
-  const transitionNavbar = () => {
-    if (window.scrollY > 100) {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", transitionNavbar);
-    return () => window.removeEventListener("scroll", transitionNavbar);
-  }, []);
-
   return (
     <div
-      className={`${
-        show && "bg-mainBlack"
-      } fixed h-14 w-full top-0 left-0 z-50 transition-all duration-[380ms] ease-in`}
+      className={`md:bg-transparent bg-[#111] fixed h-14 w-full top-0 left-0 z-50 transition-all duration-[380ms] ease-in`}
     >
       <div className="flex justify-between relative h-full w-full top-0 left-0 px-2 py-1">
         <Link

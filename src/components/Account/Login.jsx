@@ -4,7 +4,7 @@ const Login = () => {
   const [signIn, setSignIn] = useState(false);
 
   return (
-    <div className="relative bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg)] h-screen">
+    <div className="relative bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg)] h-screen overflow-y-scroll">
       <div
         className={`fixed h-14 w-full top-0 left-0 z-50 transition-all duration-[380ms] ease-in`}
       >
@@ -31,12 +31,12 @@ const Login = () => {
       </div>
       <div className="h-screen bg-[rgba(0,0,0,0.4)] z-[1] bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.8)]" />
 
-      <div className="absolute top-[30%] mx-auto left-0 right-0 p-5 text-center w-full">
+      <div className="absolute top-[10%] md:top-30 mx-auto left-0 right-0 p-5 text-center w-full overflow-y-scroll">
         {signIn ? (
           <SignIn />
         ) : (
           <>
-            <h1 className="mb-5 text-5xl ">
+            <h1 className="mb-5 md:text-5xl text-4xl ">
               Unlimited films, TV programmes and more.
             </h1>
             <h2 className="text-2xl font-normal mb-[30px]">
@@ -51,7 +51,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="px-[10px] py-[16px] outline-0 text-black w-[30%]  max-w-[600px] border-none"
+                  className="px-[10px] py-[16px] outline-0 text-black md:w-[30%]  max-w-[600px] border-none"
                 />
                 <button
                   type="submit"
@@ -59,7 +59,7 @@ const Login = () => {
                     e.preventDefault();
                     setSignIn(true);
                   }}
-                  className="px-[20px] py-[16px] border-0 bg-[#c50914] font-semibold cursor-pointer"
+                  className="px-[20px] py-[16px] border-0 bg-[#c50914] font-semibold cursor-pointer mt-2 md:mt-0"
                 >
                   GER STARTED
                 </button>
