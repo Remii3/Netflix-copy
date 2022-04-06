@@ -13,7 +13,6 @@ function HomeScreen() {
   const [genres, setGenres] = useState([]);
   const subscribed = useSelector(selectPlan);
   const navigate = useNavigate();
-  console.log(document.cookie);
   useEffect(() => {
     const subscription = window.localStorage.getItem("subscription");
 

@@ -4,7 +4,7 @@ const Login = () => {
   const [signIn, setSignIn] = useState(false);
 
   return (
-    <div className="relative bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg)] h-screen overflow-y-scroll">
+    <div className="relative bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg)] h-screen ">
       <div
         className={`fixed h-14 w-full top-0 left-0 z-50 transition-all duration-[380ms] ease-in`}
       >
@@ -31,7 +31,7 @@ const Login = () => {
       </div>
       <div className="h-screen bg-[rgba(0,0,0,0.4)] z-[1] bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.8)]" />
 
-      <div className="absolute top-[10%] md:top-30 mx-auto left-0 right-0 p-5 text-center w-full overflow-y-scroll">
+      <div className="absolute top-[10%] md:top-30 mx-auto left-0 right-0 p-5 text-center w-full ">
         {signIn ? (
           <SignIn />
         ) : (
