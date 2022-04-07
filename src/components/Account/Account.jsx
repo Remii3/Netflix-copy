@@ -13,7 +13,11 @@ const Account = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate("/login");
+    }
+  });
 
   const signOutHandler = () => {
     dispatch(subscriptionSliceActions.clearPlan());
