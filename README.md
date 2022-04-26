@@ -4,8 +4,10 @@
 
 ## Usage guide
 
-    1. In order to have a full access to the page user has to have
-    a subscription, which can be bought (for free) by clicking "subscribe"  and filling every required field with "42" or random  letters, if they  are required.
+    1. In order to have a full access to the page user has to have\
+    a subscription, which can be bought (for free)\
+    by clicking "subscribe" and filling every required field with "42"\
+    or random  letters, if they are required.
 
     2. There is a testing account that has already bought subscription:
     email: test@gmail.com
