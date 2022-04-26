@@ -28,4 +28,5 @@ export {
   onAuthStateChanged,
   signOut,
 };
+
 export default db;

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import axiosLoc from "../../request/axios";
 import requests from "../../request/requests";
 
-function Banner() {
+const Banner = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const request = await axiosLoc.get(requests.fetchNetflixOriginals);
 
@@ -16,11 +16,12 @@ function Banner() {
             Math.floor(Math.random() * request.data.results.length - 1)
           ]
         );
+
         return request;
       } catch (err) {
         throw new Error(err);
       }
-    }
+    };
 
     fetchData();
   }, []);
@@ -60,6 +61,6 @@ function Banner() {
       <div className="h-24 w-full absolute left-0 bottom-0 bg-gradient-to-b from-transparent  via-[rgba(37,37,37,0.61)] to-[#111] " />
     </header>
   );
-}
+};
 
 export default Banner;

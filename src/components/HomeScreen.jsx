@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import axiosLoc from "../request/axios";
 
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { selectPlan } from "../features/subscriptionSlice";
+
+import axiosLoc from "../request/axios";
 import requests from "../request/requests";
 
 import Banner from "./Header/Banner";
 import Nav from "./Header/Nav";
 import Row from "./Rows/Row";
-import { useNavigate } from "react-router-dom";
-import { selectPlan } from "../features/subscriptionSlice";
-import { useSelector } from "react-redux";
-function HomeScreen() {
+
+const HomeScreen = () => {
   const [genres, setGenres] = useState([]);
   const subscribed = useSelector(selectPlan);
   const navigate = useNavigate();
+
   useEffect(() => {
     const subscription = window.localStorage.getItem("subscription");
 
@@ -20,7 +23,7 @@ function HomeScreen() {
       navigate("/account");
     }
 
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const genres = await axiosLoc.get(requests.fetchGenres);
 
@@ -30,13 +33,13 @@ function HomeScreen() {
       } catch (err) {
         throw new Error(err);
       }
-    }
+    };
 
     fetchData();
   }, [navigate, subscribed]);
 
   return (
-    <div>
+    <>
       <Nav />
       <Banner />
       <Row
@@ -80,8 +83,8 @@ function HomeScreen() {
         fetchUrl={requests.fetchDocumentaries}
         genres={genres}
       />
-    </div>
+    </>
   );
-}
+};
 
 export default HomeScreen;

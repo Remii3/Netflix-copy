@@ -10,8 +10,9 @@ import { auth, onAuthStateChanged } from "./firebase";
 import { useDispatch } from "react-redux";
 import { userSliceActions } from "./features/userSlice";
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
@@ -24,6 +25,7 @@ function App() {
     });
     return unsubscribe;
   }, [dispatch]);
+
   return (
     <div className={" bg-[#111] overflow-hidden"}>
       <Routes>
@@ -34,6 +36,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

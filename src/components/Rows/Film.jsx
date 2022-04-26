@@ -1,14 +1,15 @@
 import {
-  ThumbUpIcon as SolidThumbUp,
-  CheckCircleIcon,
-} from "@heroicons/react/solid";
-import {
-  ThumbUpIcon as OutThumbUp,
   PlusCircleIcon,
+  ThumbUpIcon as OutThumbUp,
 } from "@heroicons/react/outline";
+import {
+  CheckCircleIcon,
+  ThumbUpIcon as SolidThumbUp,
+} from "@heroicons/react/solid";
+
 import { useState } from "react";
 
-function Film({ isLargeRow, movie, genres }) {
+const Film = ({ isLargeRow, movie, genres }) => {
   const [stats, setStats] = useState({ liked: false, inList: false });
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
@@ -91,6 +92,6 @@ function Film({ isLargeRow, movie, genres }) {
       </div>
     </div>
   );
-}
+};
 
 export default Film;
