@@ -56,7 +56,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false, genres }) => {
       <h2 className="pb-1">{title}</h2>
       <div
         style={scrollLeftCheck}
-        className={`hidden w-[48px] absolute  bg-[rgba(0,0,0,0.6)] left-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 group-hover:opacity-100  transition-all ease-in-out duration-200  ${
+        className={`hidden w-[48px] absolute  bg-[rgba(0,0,0,0.6)] left-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 md:group-hover:opacity-100  transition-all ease-in-out duration-200  ${
           isLargeRow ? "h-[400px]" : "h-[200px]"
         }`}
         onClick={() => leftArrowHandle()}
@@ -65,7 +65,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false, genres }) => {
       </div>
       <div
         style={scrollRightCheck}
-        className={`hidden w-[48px] absolute bg-[rgba(0,0,0,0.6)] right-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-200 ${
+        className={`hidden w-[48px] absolute bg-[rgba(0,0,0,0.6)] right-0 z-20 md:flex items-center justify-center overflow-hidden cursor-pointer opacity-0 md:group-hover:opacity-100 transition-all duration-200 ${
           isLargeRow ? "h-[400px]" : "h-[200px]"
         }`}
         onClick={() => rightArrowHandle()}
