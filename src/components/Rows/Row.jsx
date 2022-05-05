@@ -14,13 +14,11 @@ const Row = ({ title, fetchUrl, isLargeRow = false, genres }) => {
       try {
         const movies = await axiosLoc.get(fetchUrl);
         setMovies(movies.data.results);
-
         return movies;
       } catch (err) {
         throw new Error(err);
       }
     };
-
     fetchData();
   }, [fetchUrl]);
 

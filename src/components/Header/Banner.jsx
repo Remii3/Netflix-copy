@@ -10,19 +10,16 @@ const Banner = () => {
     const fetchData = async () => {
       try {
         const request = await axiosLoc.get(requests.fetchNetflixOriginals);
-
         setMovie(
           request.data.results[
             Math.floor(Math.random() * request.data.results.length - 1)
           ]
         );
-
         return request;
       } catch (err) {
         throw new Error(err);
       }
     };
-
     fetchData();
   }, []);
 

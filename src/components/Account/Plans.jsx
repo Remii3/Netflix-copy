@@ -1,12 +1,22 @@
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import db from "../../firebase";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/userSlice";
-import { doc, addDoc } from "firebase/firestore";
 import { loadStripe } from "@stripe/stripe-js";
-import { useDispatch } from "react-redux";
+
+import {
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
+
+import { useEffect, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import { subscriptionSliceActions } from "../../features/subscriptionSlice";
+import { selectUser } from "../../features/userSlice";
+
+import db from "../../firebase";
+
 const Plans = () => {
   const [products, setProducts] = useState([]);
   const user = useSelector(selectUser);

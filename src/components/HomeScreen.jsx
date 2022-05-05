@@ -13,15 +13,23 @@ import Row from "./Rows/Row";
 
 const HomeScreen = () => {
   const [genres, setGenres] = useState([]);
+  const [userVerified, setUserVerified] = useState(false);
   const subscribed = useSelector(selectPlan);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const loggedIn = window.localStorage.getItem("logIn");
     const subscription = window.localStorage.getItem("subscription");
 
-    if (!subscription) {
+    if (!loggedIn) {
+      navigate("/login");
+      return;
+    } else if (!subscription) {
       navigate("/account");
+      return;
     }
+
+    setUserVerified(true);
 
     const fetchData = async () => {
       try {
@@ -41,48 +49,52 @@ const HomeScreen = () => {
   return (
     <>
       <Nav />
-      <Banner />
-      <Row
-        title="NETFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-        genres={genres}
-        isLargeRow
-      />
-      <Row
-        title="Trending Now"
-        fetchUrl={requests.fetchTrending}
-        genres={genres}
-      />
-      <Row
-        title="Top Rated"
-        fetchUrl={requests.fetchTopRated}
-        genres={genres}
-      />
-      <Row
-        title="Action Movies"
-        fetchUrl={requests.fetchActionMovies}
-        genres={genres}
-      />
-      <Row
-        title="Comedy Movies"
-        fetchUrl={requests.fetchComedyMovies}
-        genres={genres}
-      />
-      <Row
-        title="Horror Movies"
-        fetchUrl={requests.fetchHorrorMovies}
-        genres={genres}
-      />
-      <Row
-        title="Romance Movies"
-        fetchUrl={requests.fetchRomanceMovies}
-        genres={genres}
-      />
-      <Row
-        title="Documentaries"
-        fetchUrl={requests.fetchDocumentaries}
-        genres={genres}
-      />
+      {userVerified && (
+        <>
+          <Banner />
+          <Row
+            title="NETFLIX ORIGINALS"
+            fetchUrl={requests.fetchNetflixOriginals}
+            genres={genres}
+            isLargeRow
+          />
+          <Row
+            title="Trending Now"
+            fetchUrl={requests.fetchTrending}
+            genres={genres}
+          />
+          <Row
+            title="Top Rated"
+            fetchUrl={requests.fetchTopRated}
+            genres={genres}
+          />
+          <Row
+            title="Action Movies"
+            fetchUrl={requests.fetchActionMovies}
+            genres={genres}
+          />
+          <Row
+            title="Comedy Movies"
+            fetchUrl={requests.fetchComedyMovies}
+            genres={genres}
+          />
+          <Row
+            title="Horror Movies"
+            fetchUrl={requests.fetchHorrorMovies}
+            genres={genres}
+          />
+          <Row
+            title="Romance Movies"
+            fetchUrl={requests.fetchRomanceMovies}
+            genres={genres}
+          />
+          <Row
+            title="Documentaries"
+            fetchUrl={requests.fetchDocumentaries}
+            genres={genres}
+          />
+        </>
+      )}
     </>
   );
 };
